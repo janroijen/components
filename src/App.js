@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+
+import ComboBox from "./components/combobox";
+
+const items = [
+  "Apple",
+  "Banana",
+  "Orange",
+  "Pear",
+  "Cucumber",
+  "Grape",
+  "Pecan",
+  "Chips",
+  "Nuts",
+].sort();
 
 function App() {
+  const [result, setResult] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>test</h1>
+      <ComboBox items={items} setSelected={setResult} />
+      {result ? `Selection: ${result}` : "Nothing selected"}
+    </>
   );
 }
 
